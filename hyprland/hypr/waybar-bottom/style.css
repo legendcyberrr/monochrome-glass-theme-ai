@@ -1,0 +1,68 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 10pt;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+window#waybar.bottom {
+    background-color: transparent;
+    min-height: 16px;
+}
+
+.bottom .modules-left,
+.bottom .modules-right,
+.bottom .modules-center {
+    background-color: transparent;
+}
+
+.bottom #mpris {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: #ffffff;
+    padding: 0px 12px;
+    margin: 0px 6px;
+    min-height: 14px;
+}
+
+.bottom #mpris.playing {
+    border-color: rgba(255, 255, 255, 0.50);
+}
+
+.bottom #cpu,
+.bottom #memory,
+.bottom #custom-gpu-usage,
+.bottom #temperature,
+.bottom #custom-gpu-temp {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    padding: 0px 6px;
+    margin: 0px 0px;
+    min-height: 14px;
+}
+
+.bottom #cpu {
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 10px;
+}
+
+.bottom #custom-gpu-temp {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    padding-right: 10px;
+}
+
+/* СТИЛИ ДЛЯ CAVA */
+#cava {
+    font-size: 50pt; 
+    /* rgba(красный, зеленый, синий, прозрачность). 
+       0.4 означает, что они прозрачны на 60% и видны на 40% */
+    color: rgba(255, 255, 255, 0.1); 
+}

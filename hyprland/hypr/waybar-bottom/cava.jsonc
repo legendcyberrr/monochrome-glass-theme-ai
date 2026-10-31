@@ -1,0 +1,24 @@
+{
+    "name": "cava",
+    "layer": "background",
+    "position": "bottom",
+    "height": 32,
+    "margin-bottom": 0,
+    "exclusive": false,
+
+    "modules-left": [],
+    "modules-center": ["cava"],
+    "modules-right": [],
+
+    "cava": {
+        "framerate": 144,
+        "autosens": 1,
+        "bars": 300,
+        "method": "pipewire",
+        "source": "auto",
+        "stereo": true,
+        "bar_delimiter": 0,
+        "hide_on_silence": true,
+        "format-icons": [ " ", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    }
+}

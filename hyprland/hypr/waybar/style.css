@@ -1,0 +1,75 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+    font-size: 10pt;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Общий вид модулей с тонировкой и черной рамкой */
+.top .modules-left widget > *,
+.top .modules-right widget > * {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    padding: 0px 8px;
+    margin: 0px 2px; /* Небольшой зазор между модулями внутри капсулы */
+    min-height: 14px;
+}
+
+/* Убираем дублирование левой границы у внутренних элементов, оставляя тонкий разделитель */
+.top .modules-left widget:not(:first-child) > *,
+.top .modules-right widget:not(:first-child) > * {
+    border-left: none;
+}
+
+/* --- Левая капсула --- */
+.top .modules-left widget:first-child > * {
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    margin-left: 0px;
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    padding-left: 10px;
+}
+
+.top .modules-left widget:last-child > * {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    margin-right: 0px;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    padding-right: 10px;
+}
+
+/* --- Центральная капсула (активное окно) --- */
+.top .modules-center widget > * {
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 14px;
+    color: #ffffff;
+    padding: 0px 12px;
+    margin: 0px 0px;
+    min-height: 14px;
+}
+
+/* --- Правая капсула --- */
+.top .modules-right widget:first-child > * {
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    margin-left: 0px;
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+    padding-left: 10px;
+}
+
+.top .modules-right widget:last-child > * {
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    margin-right: 0px;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    padding-right: 10px;
+}

@@ -1,0 +1,53 @@
+{
+    "name": "bottom",
+    "layer": "top",
+    "position": "bottom",
+    "height": 32,
+    "exclusive": true,
+    
+    "modules-left": ["mpris"],
+    "modules-center": [],
+    "modules-right": ["cpu", "memory", "custom/gpu-usage", "temperature", "custom/gpu-temp", "custom/margin"],
+    
+    "mpris": {
+        "format": "{player_icon}  {title} - {artist}",
+        "format-paused": "{status_icon}  <i>{title} - {artist}</i>",
+        "player-icons": { "default": "▶" },
+        "status-icons": { "paused": "⏸" },
+        "max-length": 120,
+        "min-length": 60
+    },
+    
+    "cpu": {
+        "format": " CPU {usage}%",
+        "interval": 2
+    },
+
+    "memory": {
+        "format": " 󰍛 RAM {}%",
+        "interval": 2
+    },
+
+    "custom/gpu-usage": {
+        "exec": "cat /sys/class/drm/card0/device/gpu_busy_percent 2>/dev/null || echo 0",
+        "format": " 󰢮 GPU {}%",
+        "return-type": "",
+        "interval": 2
+    },
+    
+    "temperature": {
+        "format": "  CPU {temperatureC}°C",
+        "tooltip": false
+    },
+
+    "custom/gpu-temp": {
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader 2>/dev/null || sensors | grep -m 1 'edge' | awk '{print $2}' | tr -d '+°C' || echo 0",
+        "format": "  GPU {}°C",
+        "interval": 5
+    },
+
+    "custom/margin": {
+        "format": "  ",
+        "tooltip": false
+    }
+}

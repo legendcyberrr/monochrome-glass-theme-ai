@@ -1,0 +1,166 @@
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    display-drun:               "  Приложения";
+    display-run:                "  Команды";
+    display-window:             "  Окна";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c} · {t}";
+    font:                       "JetBrainsMono Nerd Font 10";
+    icon-theme:                 "Papirus";
+}
+
+* {
+    /* Чистая прозрачность без белых заливок */
+    bg-base:        #00000026; /* Едва заметная тень (~15%) только для четкости текста на ярких обоях */
+    border-glass:   #ffffff14; /* Тонкая грань окна (~8%) */
+    border-active:  #ffffff80; /* Четкий стеклянный контур активной плитки (~50%) */
+    
+    fg-main:        #ffffff;   /* Белый текст */
+    fg-muted:       #808080;   /* Серый текст подсказок */
+    
+    background-color: transparent;
+    text-color:       @fg-main;
+    margin:           0px;
+    padding:          0px;
+}
+
+/* Главное окно */
+window {
+    transparency:     "real";
+    location:         center;
+    anchor:           center;
+    fullscreen:       false;
+    width:            720px;
+    x-offset:         0px;
+    y-offset:         0px;
+
+    enabled:          true;
+    border:           1px;
+    border-color:     @border-glass;
+    border-radius:    20px;
+    background-color: @bg-base;
+    cursor:           "default";
+}
+
+/* Контейнер */
+mainbox {
+    enabled:          true;
+    spacing:          16px;
+    padding:          24px;
+    background-color: transparent;
+    children:         [ "inputbar", "listview", "mode-switcher" ];
+}
+
+/* Строка поиска (полностью прозрачная) */
+inputbar {
+    enabled:          true;
+    spacing:          10px;
+    padding:          10px 16px;
+    border:           1px;
+    border-color:     @border-glass;
+    border-radius:    14px;
+    background-color: transparent;
+    text-color:       @fg-main;
+    children:         [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:          true;
+    background-color: transparent;
+    text-color:       @fg-main;
+}
+
+entry {
+    enabled:          true;
+    background-color: transparent;
+    text-color:       @fg-main;
+    cursor:           "text";
+    placeholder:      "Поиск...";
+    placeholder-color:@fg-muted;
+}
+
+/* Сетка карточек */
+listview {
+    enabled:          true;
+    columns:          4;
+    lines:            3;
+    cycle:            true;
+    dynamic:          true;
+    scrollbar:        false;
+    layout:           vertical;
+    reverse:          false;
+    fixed-height:     true;
+    fixed-columns:    true;
+    spacing:          12px;
+    background-color: transparent;
+}
+
+/* Базовые свойства плитки */
+element {
+    enabled:          true;
+    orientation:      vertical;
+    spacing:          10px;
+    padding:          16px 8px;
+    border:           1px;
+    border-color:     transparent; /* Прозрачная рамка для избежания дергания размеров */
+    border-radius:    14px;
+    background-color: transparent;
+    text-color:       @fg-main;
+    cursor:           "pointer";
+}
+
+/* Обычное и чередующееся состояние — строго 100% прозрачность */
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg-main;
+}
+
+/* ВЫБРАННАЯ ПЛИТКА: фон полностью прозрачный, выделяется только контуром */
+element selected.normal,
+element selected.active {
+    background-color: transparent;
+    border-color:     @border-active;
+    text-color:       #ffffff;
+}
+
+/* Иконка */
+element-icon {
+    background-color: transparent;
+    size:             48px;
+    cursor:           "inherit";
+    horizontal-align: 0.5;
+}
+
+/* Подпись под иконкой */
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           "inherit";
+    vertical-align:   0.5;
+    horizontal-align: 0.5;
+}
+
+/* Переключатель режимов снизу */
+mode-switcher {
+    enabled:          true;
+    spacing:          10px;
+    background-color: transparent;
+}
+
+button {
+    padding:          8px 14px;
+    border:           1px;
+    border-color:     @border-glass;
+    border-radius:    12px;
+    background-color: transparent;
+    text-color:       @fg-muted;
+    cursor:           "pointer";
+}
+
+button selected {
+    background-color: transparent;
+    border-color:     @border-active;
+    text-color:       #ffffff;
+}

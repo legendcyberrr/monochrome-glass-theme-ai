@@ -1,0 +1,54 @@
+# --- Шрифт ---
+font-family = "JetBrainsMono Nerd Font"
+font-size = 11
+
+# --- Стекло ровно как в Rofi ---
+# В Rofi использовался #00000026: чистый черный цвет с прозрачностью ровно 15%
+background = #000000
+background-opacity = 0.15
+foreground = #ffffff
+
+# --- Курсор и выделение ---
+cursor-color = #ffffff
+cursor-style = bar
+cursor-style-blink = true
+
+selection-background = #ffffff
+selection-foreground = #000000
+
+# --- Оформление окна ---
+# Отключаем GTK-шапку, чтобы окно управлялось Hyprland
+window-decoration = false
+window-padding-x = 16
+window-padding-y = 16
+window-padding-balance = true
+
+# --- Палитра ANSI (чистая, без фоновой синевы) ---
+palette = 0=#1a1a1a
+palette = 8=#4a4a4a
+
+# Red
+palette = 1=#e06c75
+palette = 9=#e06c75
+
+# Green
+palette = 2=#98c379
+palette = 10=#98c379
+
+# Yellow
+palette = 3=#e5c07b
+palette = 11=#e5c07b
+
+# Blue / Cyan
+palette = 4=#61afef
+palette = 12=#61afef
+palette = 6=#56b6c2
+palette = 14=#56b6c2
+
+# Magenta
+palette = 5=#c678dd
+palette = 13=#c678dd
+
+# White
+palette = 7=#cccccc
+palette = 15=#ffffff

@@ -1,0 +1,201 @@
+
+
+/* ============================================================
+   МОНОХРОМНОЕ МАТОВОЕ СТЕКЛО (15% ЧЕРНОГО И СТРОГИЙ СТИЛЬ ОБРАЗЦА)
+   ============================================================ */
+
+@define-color bg_glass       rgba(0, 0, 0, 0.15);  /* Ровно 15% черного как в образце */
+@define-color base_glass     rgba(0, 0, 0, 0.25);    /* Фон полей ввода */
+@define-color border_glass   rgba(255, 255, 255, 0.12); /* Тонкая грань стекла (~12%) */
+@define-color border_active  rgba(255, 255, 255, 0.50); /* Четкий контур (~50%) */
+@define-color glass_hover    rgba(255, 255, 255, 0.08); /* Отблеск при наведении */
+@define-color glass_active   rgba(255, 255, 255, 0.16); /* Блик выбранного */
+
+@define-color fg_main        #ffffff;  /* Чистый белый текст */
+@define-color fg_muted       #858585;  /* Серый второстепенный текст */
+
+/* 1. Главные окна и диалоги */
+window,
+window.background,
+dialog {
+    background-color: @bg_glass;
+    color: @fg_main;
+    border-radius: 16px;
+}
+
+/* 2. Заголовок окна (Headerbar / Titlebar) */
+headerbar {
+    background-color: transparent;
+    border-bottom: 1px solid @border_glass;
+    box-shadow: none;
+    padding: 8px 12px;
+}
+
+headerbar .title {
+    color: @fg_main;
+    font-weight: bold;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+headerbar .subtitle {
+    color: @fg_muted;
+}
+
+/* 3. Кнопки */
+button {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid @border_glass;
+    border-radius: 10px;
+    color: @fg_main;
+    padding: 6px 14px;
+    box-shadow: none;
+    transition: all 0.2s ease;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+button:hover {
+    background-color: @glass_hover;
+    border-color: rgba(255, 255, 255, 0.30);
+    color: #ffffff;
+}
+
+button:active,
+button:checked {
+    background-color: @glass_active;
+    border-color: @border_active;
+    color: #ffffff;
+}
+
+/* 4. Поля ввода текста (Entry) */
+entry {
+    background-color: @base_glass;
+    border: 1px solid @border_glass;
+    border-radius: 10px;
+    color: @fg_main;
+    padding: 8px 12px;
+    box-shadow: none;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+entry:focus {
+    border-color: @border_active;
+    box-shadow: 0 0 0 1px @border_active;
+}
+
+/* 5. Ползунки громкости (актуально для pavucontrol) */
+scale trough {
+    background-color: rgba(255, 255, 255, 0.10);
+    border: 1px solid @border_glass;
+    border-radius: 8px;
+    min-height: 8px;
+    min-width: 8px;
+}
+
+scale highlight {
+    background-color: rgba(255, 255, 255, 0.75); /* Чистая белая шкала */
+    border-radius: 8px;
+}
+
+scale slider {
+    background-color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    min-width: 16px;
+    min-height: 16px;
+    margin: -4px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+/* 6. Списки, таблицы и строки (pavucontrol, blueman) */
+list,
+treeview,
+.view {
+    background-color: transparent;
+    color: @fg_main;
+}
+
+row {
+    border-radius: 8px;
+    padding: 6px;
+    transition: all 0.2s ease;
+}
+
+row:hover {
+    background-color: @glass_hover;
+}
+
+row:selected {
+    background-color: @glass_active;
+    border: 1px solid @border_active;
+    color: #ffffff;
+}
+
+/* 7. Вкладки (Tabs / Notebooks в pavucontrol) */
+notebook,
+notebook > stack {
+    background-color: transparent;
+}
+
+notebook > header {
+    background-color: transparent;
+    border-bottom: 1px solid @border_glass;
+}
+
+notebook > header tab {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px 8px 0 0;
+    color: @fg_muted;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+notebook > header tab:hover {
+    color: @fg_main;
+}
+
+notebook > header tab:checked {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid @border_glass;
+    border-bottom-color: transparent;
+    color: #ffffff;
+}
+
+/* 8. Контекстные меню и выпадающие списки */
+menu,
+popover,
+popover.background {
+    background-color: rgba(10, 10, 10, 0.85);
+    border: 1px solid @border_glass;
+    border-radius: 12px;
+    color: @fg_main;
+    padding: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+menuitem {
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+menuitem:hover,
+popover button:hover {
+    background-color: @glass_hover;
+    color: #ffffff;
+}
+
+/* 9. Тонкие минималистичные полосы прокрутки */
+scrollbar trough {
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    min-width: 5px;
+    min-height: 5px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}

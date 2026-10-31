@@ -1,0 +1,129 @@
+{
+    "name": "top",
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 8,
+    "margin-left": 12,
+    "margin-right": 12,
+    "spacing": 0,
+
+    // Расположение блоков (все модули внутри левой, центральной и правой зон объединяются в капсулы)
+    "modules-left": [
+        "hyprland/workspaces",
+        "wlr/taskbar"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "bluetooth",
+        "network",
+        "battery",
+        "clock",
+        "tray"
+    ],
+
+    // Рабочие пространства
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    // Запущенные приложения (Панель задач)
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": []
+    },
+
+    // Название активного окна
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 35,
+        "separate-outputs": true
+    },
+
+    // Громкость звука
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-muted": "󰝟 Mute",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 5,
+        "on-click": "pavucontrol"
+    },
+
+    // Яркость экрана
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "scroll-step": 2,
+        "on-scroll-up": "brightnessctl set 2%+",
+        "on-scroll-down": "brightnessctl set 2%-",
+        "smooth-scrolling-threshold": 1
+    },
+
+    // Bluetooth
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} ({device_battery_percentage}%)",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\nПодключено: {num_connections}",
+        "tooltip-format-connected": "{controller_alias}\n\nПодключено: {device_alias}\nБатарея: {device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+
+    // Wi-Fi / Сеть
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": "󰈀 Ethernet",
+        "format-linked": "󰈀 (No IP)",
+        "format-disconnected": "󰖪 Off",
+        "tooltip-format-wifi": "Сеть: {essid}\nСигнал: {signalStrength}%\nIP: {ipaddr}",
+        "tooltip-format-ethernet": "Интерфейс: {ifname}\nIP: {ipaddr}",
+        "on-click": "ghostty --class=float_network -e nmtui"
+    },
+
+    // Уровень заряда (Батарея)
+    "battery": {
+        "states": {
+            "good": 90,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "2", "󰁹"]
+    },
+
+    // Часы
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "format-alt": "󰃭 {:%d.%m.%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
+
+    // Системный трей
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}
